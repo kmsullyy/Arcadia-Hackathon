@@ -1,0 +1,23 @@
+name = "arcadia-commuter-assistant"
+main = "SRC/worker/index.js"
+compatibility_date = "2024-01-01"
+custom_domains = ["ah.evaakselrad.com"]
+
+# ── Static Asset Serving ──────────────────────────────────────────────────────
+# Cloudflare Workers Assets: serves everything in the project root as static files.
+# The Worker script handles /api/* routes; all other requests (/, /JS/app.js,
+# /styles/style.css, etc.) are served automatically from the assets bucket.
+assets = { directory = "./", binding = "ASSETS" }
+
+# ── KV Namespace (add back in Phase 6 when settings need persistence) ─────────
+# [[kv_namespaces]]
+# binding = "ArcadiaKV"
+# id = "PASTE_YOUR_REAL_KV_ID_HERE"   # run: npx wrangler kv namespace list
+
+[vars]
+ENVIRONMENT = "production"
+
+# ── Local dev server ──────────────────────────────────────────────────────────
+[dev]
+port = 8787
+local_protocol = "http"

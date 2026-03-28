@@ -1,0 +1,8 @@
+# Exclude git internals and build artifacts from Cloudflare asset uploads
+.git/
+.wrangler/
+node_modules/
+*.log
+project_plan.md
+wrangler.toml
+README.md

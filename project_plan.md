@@ -6,16 +6,15 @@ The application will be built using HTML/CSS/JS, run serverless on Cloudflare, a
 ## Phase 1: Project Setup & Infrastructure
 - **Task 1.01:** Initialize project directory structure with HTML, CSS, and JS files. (Done)
 - **Task 1.02:** Initialize Cloudflare Workers project for serverless backend computing. (Done)
-- **Task 1.03:** Setup Cloudflare Database (D1 or KV) to store user data (preferences, schedule, location). (Done KV-ArcadiaHackathon)
+- **Task 1.03:** Setup Cloudflare Database (D1 or KV) to store user data (preferences, schedule, location). (Done KV=ArcadiaHackathon)
 - **Task 1.04:** Create the base CSS design system (tokens, variables, base styling) to support theming. (Done)
-
+# Phase 2 will be all demo data insead of canvas and email and maps api will be either mocked or a free alternative
 ## Phase 2: Data & External API Integrations (Backend)
-- **Task 2.01:** Implement Canvas API integration to retrieve student schedules and course announcements.
-- **Task 2.02:** Implement Email parsing/scraping logic to detect crucial keywords (e.g., "cancelled", "virtual", "Zoom").
-- **Task 2.03:** Develop backend logic that cross-references class schedules with Canvas/Email data to flag classes as cancelled or virtual.
-- **Task 2.04:** Integrate a Maps/Traffic API (e.g., Google Maps API) to calculate driving/commuting ETAs based on user location and campus destination.
-- **Task 2.05:** Expose secure API endpoints via Cloudflare Workers for the frontend to consume.
-
+- **Task 2.01:** Implement Canvas API integration to retrieve student schedules and course announcements. ✅ (Done — JS/mockData.js: MOCK_CANVAS_COURSES)
+- **Task 2.02:** Implement Email parsing/scraping logic to detect crucial keywords (e.g., "cancelled", "virtual", "Zoom"). ✅ (Done — JS/api.js: parseEmailStatuses + keyword lists)
+- **Task 2.03:** Develop backend logic that cross-references class schedules with Canvas/Email data to flag classes as cancelled or virtual. ✅ (Done — JS/api.js: getEnrichedSchedule)
+- **Task 2.04:** Integrate a Maps/Traffic API — using OSRM (free, no key required) to calculate driving ETAs. ✅ (Done — JS/api.js: getDrivingETA)
+- **Task 2.05:** Expose secure API endpoints via Cloudflare Workers for the frontend to consume. ✅ (Done — SRC/worker/index.js: /api/dashboard, /api/schedule, /api/eta, /api/health)
 ## Phase 3: Frontend - Overview/Homepage
 - **Task 3.01:** Design and develop the homepage layout.
 - **Task 3.02:** Build the `Day's Schedule Overview` component.
@@ -24,7 +23,7 @@ The application will be built using HTML/CSS/JS, run serverless on Cloudflare, a
 
 ## Phase 4: Frontend - Account Page
 - **Task 4.01:** Build the `Full Arcadia Schedule` view, including filters to break down the schedule day-by-day.
-- **Task 4.02:** Build the `Location Management` component to allow users to set their starting address or enable location tracking.
+- **Task 4.02:** Build the `Location Management` component to allow users to set their starting address     or enable location tracking.
 - **Task 4.03:** Build the `Map/Google Connectivity Setup` component for authorizing location and map data.
 
 ## Phase 5: Frontend - Alert Page
