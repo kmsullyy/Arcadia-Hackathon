@@ -1,263 +1,262 @@
 /* ==========================================================================
-   Arcadia Commuter Assistant: Core Design System
+   Arcadia Commuter Assistant: Core Design System & Sketch Layout
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  /* ========================================================================
-     1. Color Palette (HSL Tokens)
-     ======================================================================== */
   /* Arcadia Brand Colors */
-  --hue-brand: 350; /* Arcadia Red/Cardinal */
+  --hue-brand: 350; 
   --sat-brand: 85%;
   --brand-light: hsl(var(--hue-brand), var(--sat-brand), 95%);
-  --brand-main: hsl(var(--hue-brand), var(--sat-brand), 45%);
+  --brand-main: hsl(var(--hue-brand), var(--sat-brand), 45%); /* The Red */
   --brand-dark: hsl(var(--hue-brand), var(--sat-brand), 30%);
 
-  /* Semantic - Accent, Success, Warning, Danger */
-  --accent-main: hsl(210, 80%, 55%);
-  --success-main: hsl(150, 70%, 40%);
-  --warning-main: hsl(40, 95%, 55%);
-  --danger-main: hsl(0, 85%, 55%);
+  /* Backgrounds */
+  --bg-primary: #f8fafc;
+  --bg-glass: rgba(255, 255, 255, 0.85);
 
-  /* Base Light Theme Tokens */
-  --bg-primary: hsl(0, 0%, 98%);
-  --bg-secondary: hsl(0, 0%, 100%);
-  --bg-glass: rgba(255, 255, 255, 0.7);
-  --bg-glass-heavy: rgba(255, 255, 255, 0.3);
-
-  --text-primary: hsl(220, 20%, 15%);
-  --text-secondary: hsl(220, 15%, 45%);
-  --text-muted: hsl(220, 10%, 65%);
-
-  --border-light: hsl(220, 15%, 90%);
-  --border-glass: rgba(255, 255, 255, 0.4);
-
-  /* ========================================================================
-     2. Typography
-     ======================================================================== */
+  /* Typography */
   --font-base: 'Inter', sans-serif;
   --font-heading: 'Outfit', sans-serif;
+  --text-primary: #1e293b;
+  --text-muted: #64748b;
 
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 2rem;
-  --text-4xl: 2.5rem;
-  --text-5xl: 3rem;
-
-  /* ========================================================================
-     3. Spacing & Sizing
-     ======================================================================== */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  
-  --container-max: 1200px;
-  --container-sm: 600px;
-
-  /* ========================================================================
-     4. Layout & Shapes (Radii, Shadows, Glass)
-     ======================================================================== */
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-round: 9999px;
-
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-  
-  --glass-blur: blur(12px);
-
-  /* ========================================================================
-     5. Motion & Transitions
-     ======================================================================== */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-bounce: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Glass/Shadow */
+  --glass-blur: blur(16px);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-red: 0 20px 40px -10px hsla(var(--hue-brand), var(--sat-brand), 45%, 0.4);
 }
 
-/* ========================================================================
-   Dark Mode Overrides
-   ======================================================================== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-primary: hsl(220, 25%, 8%);
-    --bg-secondary: hsl(220, 25%, 12%);
-    --bg-glass: rgba(20, 22, 28, 0.75);
-    --bg-glass-heavy: rgba(20, 22, 28, 0.4);
-
-    --text-primary: hsl(0, 0%, 98%);
-    --text-secondary: hsl(220, 15%, 75%);
-    --text-muted: hsl(220, 15%, 55%);
-
-    --border-light: hsl(220, 20%, 20%);
-    --border-glass: rgba(255, 255, 255, 0.05);
-    
-    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-  }
-}
-
-/* Explicit `.dark` class support if user wants a manual theme toggle */
-:root.dark {
-  --bg-primary: hsl(220, 25%, 8%);
-  --bg-secondary: hsl(220, 25%, 12%);
-  --bg-glass: rgba(20, 22, 28, 0.75);
-  --bg-glass-heavy: rgba(20, 22, 28, 0.4);
-
-  --text-primary: hsl(0, 0%, 98%);
-  --text-secondary: hsl(220, 15%, 75%);
-  --text-muted: hsl(220, 15%, 55%);
-
-  --border-light: hsl(220, 20%, 20%);
-  --border-glass: rgba(255, 255, 255, 0.05);
-  
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-}
-
-/* ========================================================================
-   Reset & Base Styles
-   ======================================================================== */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: var(--font-base);
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.6;
-  min-height: 100vh;
-  transition: background-color var(--transition-base), color var(--transition-base);
-  
-  /* Beautiful animated mesh gradient background for extreme premium feel */
-  background-image: 
-    radial-gradient(at 0% 0%, hsla(var(--hue-brand), var(--sat-brand), 45%, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, hsla(210, 80%, 55%, 0.1) 0px, transparent 50%);
-  background-attachment: fixed;
-  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Prevent scrolling, act like an app */
+  display: flex;
+  flex-direction: column;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* App Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: radial-gradient(circle at top left, #ffffff, var(--bg-primary));
+  box-shadow: var(--shadow-md);
+}
+
+/* Header */
+.app-header {
+  padding: 24px 24px 12px;
+  z-index: 10;
+}
+
+.app-header h1 {
   font-family: var(--font-heading);
+  font-size: 1.75rem;
   font-weight: 700;
-  line-height: 1.2;
   color: var(--text-primary);
   letter-spacing: -0.02em;
 }
 
-a {
-  color: var(--accent-main);
-  text-decoration: none;
-  transition: color var(--transition-fast);
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  position: relative;
+  padding: 0 24px;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
 }
 
-a:hover {
-  filter: brightness(1.2);
+/* The Big Red Card */
+.red-class-card {
+  width: 90%;
+  max-width: 500px;
+  min-height: 300px;
+  background: linear-gradient(135deg, var(--brand-main), hsl(340, 85%, 40%));
+  border-radius: 28px;
+  box-shadow: var(--shadow-red);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-img {
-  max-width: 100%;
-  display: block;
+.red-class-card:hover {
+  transform: translateY(-8px) scale(1.02);
 }
 
-/* ========================================================================
-   Utility Classes & Components
-   ======================================================================== */
+.red-class-card h2 {
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  text-align: center;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
 
-.container {
+.red-class-card .card-location {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: var(--font-heading);
+}
+
+/* The Castle */
+.castle-container {
+  position: absolute;
+  right: -20px;
+  bottom: 0px; /* Rest on top of the road */
+  width: 220px;
+  height: 180px;
+  z-index: 1;
+}
+
+.castle-img {
   width: 100%;
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--space-md);
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
 }
 
-.container-sm {
-  max-width: var(--container-sm);
-}
-
-/* Premium Glassmorphic Card */
-.card-glass {
+/* Placeholder styling if image fails to load */
+.no-image {
   background: var(--bg-glass);
   backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-  box-shadow: var(--shadow-md);
-  transition: transform var(--transition-bounce), box-shadow var(--transition-base);
-}
-
-.card-glass:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-/* Primary Action Button */
-.btn-primary {
-  display: inline-flex;
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-sm);
-  background-color: var(--brand-main);
-  color: #ffffff;
-  font-family: var(--font-base);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  padding: 10px;
+}
+
+/* The Road Scene */
+.road-scene {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  margin-bottom: 80px; /* Space for the bottom nav */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.car-container {
+  position: absolute;
+  bottom: 35px; /* Above the road line */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  z-index: 20;
+  animation: car-bounce 0.8s infinite alternate ease-in-out;
+}
+
+.car-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.2));
+  transform: scaleX(-1);
+}
+
+@keyframes car-bounce {
+  from { transform: translateX(-50%) translateY(0); }
+  to { transform: translateX(-50%) translateY(-4px); }
+}
+
+.road {
+  width: 100%;
+  height: 80px;
+  background: #1e293b;
+  position: relative;
+  overflow: hidden;
+  border-top: 4px solid #334155;
+}
+
+.road-lines {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 200%; /* Double width to animate seamlessly */
+  height: 4px;
+  transform: translateY(-50%);
+  background-image: linear-gradient(to right, #facc15 50%, transparent 50%);
+  background-size: 80px 100%;
+  animation: road-move 1s linear infinite;
+}
+
+@keyframes road-move {
+  from { transform: translateY(-50%) translateX(0); }
+  to { transform: translateY(-50%) translateX(80px); }
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur);
+  border-top: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: env(safe-area-inset-bottom, 0px); /* iPhone notch support */
+  z-index: 50;
+  box-shadow: 0 -10px 20px rgba(0,0,0,0.02);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-muted);
+  gap: 6px;
+  transition: color 0.2s, transform 0.2s;
+  width: 33%;
+}
+
+.nav-item:hover, .nav-item.active {
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  stroke-width: 2;
+}
+
+.nav-label {
+  font-size: 0.75rem;
   font-weight: 600;
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-round);
-  border: none;
-  cursor: pointer;
-  transition: all var(--transition-bounce);
-  box-shadow: 0 4px 14px 0 hsla(var(--hue-brand), var(--sat-brand), 45%, 0.4);
+  font-family: var(--font-heading);
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 20px 0 hsla(var(--hue-brand), var(--sat-brand), 45%, 0.6);
-  background-color: hsl(var(--hue-brand), var(--sat-brand), 50%);
-}
-
-.btn-primary:active {
-  transform: translateY(1px) scale(0.98);
-}
-
-/* Specific Utilities */
-.text-brand { color: var(--brand-main); }
-.text-danger { color: var(--danger-main); }
-.text-success { color: var(--success-main); }
-.text-muted { color: var(--text-muted); }
-
-.flex { display: flex; }
-.items-center { align-items: center; }
-.justify-between { justify-content: space-between; }
-.gap-sm { gap: var(--space-sm); }
-.gap-md { gap: var(--space-md); }
-
-.mt-md { margin-top: var(--space-md); }
-.mb-lg { margin-bottom: var(--space-lg); }
-.text-center { text-align: center; }
-
-/* Micro-animations */
-@keyframes pulse-soft {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.animate-pulse-soft {
-  animation: pulse-soft 2s infinite ease-in-out;
+/* Hand sketched look tweaks (Optional stylistic choice) */
+.sketchy-text {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; /* For the scribbled effect from image */
+  transform: rotate(-2deg);
 }
