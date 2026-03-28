@@ -18,8 +18,8 @@ export const CAMPUS = {
 
 export const MOCK_STUDENT = {
   id: "stu_001",
-  name: "Alex Rivera",
-  email: "alex.rivera@arcadia.edu",
+  name: "Kevin Sullivan",
+  email: "ksullivan@arcadia.edu",
   homeAddress: "1234 Main St, Philadelphia, PA 19103",
   homeLat: 39.9526,
   homeLng: -75.1652,

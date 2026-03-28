@@ -492,6 +492,21 @@ function injectStyles() {
       font-weight: 500;
     }
 
+    /* ── Urgent Banner ── */
+    .ub-text { flex: 1; }
+    .ub-details-btn {
+      background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white;
+      font-family: var(--font-heading); font-size: 0.75rem; font-weight: 700; border-radius: 12px;
+      padding: 6px 12px; cursor: pointer; transition: background 0.2s, transform 0.1s;
+    }
+    .ub-details-btn:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+    .ub-close {
+      background: transparent; border: none; color: rgba(255,255,255,0.7); font-size: 1.1rem;
+      cursor: pointer; padding: 4px; transition: color 0.2s, transform 0.1s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ub-close:hover { color: white; transform: scale(1.1); }
+
     /* ── Main Card ── */
     #main-card {
       width: 90%;
@@ -1012,6 +1027,10 @@ function initSettings() {
 
       document.getElementById("view-home").style.display = targetId === "nav-home" ? "block" : "none";
       document.getElementById("view-settings").style.display = targetId === "nav-settings" ? "block" : "none";
+      const viewAccount = document.getElementById("view-account");
+      if (viewAccount) {
+        viewAccount.style.display = targetId === "nav-account" ? "block" : "none";
+      }
     });
   });
 }

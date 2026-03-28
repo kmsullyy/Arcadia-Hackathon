@@ -25,10 +25,7 @@
                     <h2 class="card-heading" style="font-size:1.5rem">Fetching your schedule</h2>
                     <p class="card-sub">Checking Canvas &amp; email…</p>
                 </div>
-                <div class="castle-container">
-                    <img src="Public/Images/castle.jpg" alt="Arcadia Castle" class="castle-img"
-                        onerror="this.style.display='none'; this.parentElement.classList.add('no-image'); this.parentElement.innerHTML='<div style=\'padding:10px\'>🏰<br><small>Drop castle.jpg in Public/Images/</small></div>';">
-                </div>
+
             </main>
 
             <div class="road-scene">
@@ -52,7 +49,7 @@
                     <div class="road-lines"></div>
                 </div>
             </div>
-            
+
             <div id="home-widgets"></div>
         </div>
 
@@ -61,7 +58,7 @@
             <header class="app-header" style="padding: 0 0 20px 0;">
                 <h1 class="app-greeting">Settings</h1>
             </header>
-            
+
             <div class="settings-group">
                 <div class="settings-item">
                     <div class="settings-label">
@@ -73,7 +70,7 @@
                         <span class="slider round"></span>
                     </label>
                 </div>
-                
+
                 <div class="settings-item">
                     <div class="settings-label">
                         <strong>Dark Theme</strong>
@@ -94,7 +91,8 @@
                         <span>Typical commute duration (minutes)</span>
                     </div>
                     <div>
-                        <input type="number" id="setting-commute-time" min="0" max="180" value="35" style="width: 70px; padding: 6px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: var(--font-heading); text-align: center; font-size: 0.9rem; background: rgba(255,255,255,0.8); color: #1e293b;">
+                        <input type="number" id="setting-commute-time" min="0" max="180" value="35"
+                            style="width: 70px; padding: 6px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); font-family: var(--font-heading); text-align: center; font-size: 0.9rem; background: rgba(255,255,255,0.8); color: #1e293b;">
                     </div>
                 </div>
             </div>
@@ -137,11 +135,69 @@
                     Built with ❤️ for the Arcadia Hackathon.<br>
                     <span style="opacity: 0.7; font-size: 0.7rem;">v1.0.0</span>
                 </p>
-                
+
                 <div style="margin-top: 32px;">
-                    <p style="font-size: 0.65rem; color: var(--text-muted); margin-bottom: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">OG Concept Art "garbage.png"</p>
-                    <img src="Public/Images/garbage.png" alt="OG Concept Art" style="width: 100%; max-width: 280px; border-radius: 16px; border: 4px solid rgba(0,0,0,0.05); box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                    <p
+                        style="font-size: 0.65rem; color: var(--text-muted); margin-bottom: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">
+                        OG Concept Art "garbage.png"</p>
+                    <img src="Public/Images/garbage.png" alt="OG Concept Art"
+                        style="width: 100%; max-width: 280px; border-radius: 16px; border: 4px solid rgba(0,0,0,0.05); box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
                 </div>
+            </div>
+        </div>
+
+        <!-- ACCOUNT VIEW -->
+        <div id="view-account" class="view-section" style="display: none; padding: 24px; padding-bottom: 90px;">
+            <header class="app-header" style="padding: 0 0 20px 0; display: flex; align-items: center; gap: 16px;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--brand-main); display: flex; justify-content: center; align-items: center; color: white; font-size: 24px; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                    KS
+                </div>
+                <div style="flex: 1;">
+                    <h1 class="app-greeting" style="margin: 0; font-size: 1.5rem; line-height: 1.2;">Kevin Sullivan</h1>
+                    <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">ksullivan@arcadia.edu</p>
+                </div>
+                <button style="background: rgba(255,255,255,0.1); border: none; padding: 8px 12px; border-radius: 20px; color: var(--text-muted); font-size: 0.75rem; font-weight: 700; cursor: pointer;">Edit</button>
+            </header>
+
+            <div class="settings-group">
+                <h3 class="settings-group-title">Integrations</h3>
+                <div class="settings-item" style="cursor: pointer;">
+                    <div class="settings-label">
+                        <strong>Connect Google Maps</strong>
+                        <span>Sync your routes and saved places</span>
+                    </div>
+                    <div style="color: var(--text-muted); font-size: 1.2rem;">›</div>
+                </div>
+                <div class="settings-item" style="cursor: pointer;">
+                    <div class="settings-label">
+                        <strong>Sync Canvas Calendar</strong>
+                        <span>Automatically import all your courses</span>
+                    </div>
+                    <div style="color: #10b981; font-weight: 800; font-size: 0.75rem; background: rgba(16,185,129,0.15); padding: 4px 8px; border-radius: 12px;">CONNECTED</div>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h3 class="settings-group-title">Preferences</h3>
+                <div class="settings-item" style="cursor: pointer;">
+                    <div class="settings-label">
+                        <strong>Home Address</strong>
+                        <span style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">1234 Main St, Philadelphia, PA</span>
+                    </div>
+                    <div style="color: var(--text-muted); font-size: 1.2rem;">›</div>
+                </div>
+                <div class="settings-item" style="cursor: pointer;">
+                    <div class="settings-label">
+                        <strong>Default Transport</strong>
+                        <span>Driving</span>
+                    </div>
+                    <div style="color: var(--text-muted); font-size: 1.2rem;">›</div>
+                </div>
+            </div>
+            
+            <div class="settings-group">
+                <h3 class="settings-group-title">Danger Zone</h3>
+                <button class="settings-btn btn-danger" style="margin-top: 10px;">Delete Account</button>
             </div>
         </div>
 
@@ -174,6 +230,15 @@
                     </path>
                 </svg>
                 <span class="nav-label">Settings</span>
+            </a>
+
+            <!-- Account -->
+            <a href="#" class="nav-item" id="nav-account">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span class="nav-label">Account</span>
             </a>
         </nav>
 

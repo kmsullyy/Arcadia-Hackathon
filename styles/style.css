@@ -6,10 +6,11 @@
 
 :root {
   /* Arcadia Brand Colors */
-  --hue-brand: 350; 
+  --hue-brand: 350;
   --sat-brand: 85%;
   --brand-light: hsl(var(--hue-brand), var(--sat-brand), 95%);
-  --brand-main: hsl(var(--hue-brand), var(--sat-brand), 45%); /* The Red */
+  --brand-main: hsl(var(--hue-brand), var(--sat-brand), 45%);
+  /* The Red */
   --brand-dark: hsl(var(--hue-brand), var(--sat-brand), 30%);
 
   /* Backgrounds */
@@ -40,7 +41,11 @@ body.dark-mode {
   --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: var(--font-base);
@@ -92,7 +97,8 @@ body {
 
 /* The Big Red Card — now #main-card, styled via app.js phase3-styles */
 /* Keep .red-class-card as an alias for backward compat */
-.red-class-card, #main-card {
+.red-class-card,
+#main-card {
   width: 90%;
   max-width: 500px;
   min-height: 260px;
@@ -109,7 +115,8 @@ body {
   padding: 24px 20px;
 }
 
-.red-class-card:hover, #main-card:hover {
+.red-class-card:hover,
+#main-card:hover {
   transform: translateY(-8px) scale(1.02);
 }
 
@@ -119,7 +126,7 @@ body {
   font-size: 3rem;
   text-align: center;
   line-height: 1.1;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .red-class-card .card-location {
@@ -136,10 +143,12 @@ body {
 .castle-container {
   position: absolute;
   right: -20px;
-  bottom: 0px; /* Rest on top of the road */
+  bottom: 0px;
+  /* Rest on top of the road */
   width: 220px;
   height: 180px;
   z-index: 1;
+  border-radius: 16px;
 }
 
 .castle-img {
@@ -147,7 +156,8 @@ body {
   height: 100%;
   object-fit: contain;
   object-position: bottom;
-  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+  border-radius: 16px;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
 }
 
 /* Placeholder styling if image fails to load */
@@ -170,7 +180,8 @@ body {
   position: relative;
   width: 100%;
   height: 110px;
-  margin-bottom: 80px; /* Space for the bottom nav */
+  margin-bottom: 80px;
+  /* Space for the bottom nav */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -178,7 +189,8 @@ body {
 
 .car-container {
   position: absolute;
-  bottom: 35px; /* Above the road line */
+  bottom: 35px;
+  /* Above the road line */
   left: 50%;
   transform: translateX(-50%);
   width: 140px;
@@ -189,13 +201,18 @@ body {
 .car-svg {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.2));
   transform: scaleX(-1);
 }
 
 @keyframes car-bounce {
-  from { transform: translateX(-50%) translateY(0); }
-  to { transform: translateX(-50%) translateY(-4px); }
+  from {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  to {
+    transform: translateX(-50%) translateY(-4px);
+  }
 }
 
 .road {
@@ -211,7 +228,8 @@ body {
   position: absolute;
   top: 50%;
   left: 0;
-  width: 200%; /* Double width to animate seamlessly */
+  width: 200%;
+  /* Double width to animate seamlessly */
   height: 4px;
   transform: translateY(-50%);
   background-image: linear-gradient(to right, #facc15 50%, transparent 50%);
@@ -220,8 +238,13 @@ body {
 }
 
 @keyframes road-move {
-  from { transform: translateY(-50%) translateX(0); }
-  to { transform: translateY(-50%) translateX(-80px); }
+  from {
+    transform: translateY(-50%) translateX(0);
+  }
+
+  to {
+    transform: translateY(-50%) translateX(-80px);
+  }
 }
 
 /* Bottom Navigation */
@@ -233,13 +256,14 @@ body {
   height: 80px;
   background: var(--bg-glass);
   backdrop-filter: var(--glass-blur);
-  border-top: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-bottom: env(safe-area-inset-bottom, 0px); /* iPhone notch support */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  /* iPhone notch support */
   z-index: 50;
-  box-shadow: 0 -10px 20px rgba(0,0,0,0.02);
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.02);
 }
 
 .nav-item {
@@ -253,7 +277,8 @@ body {
   width: 33%;
 }
 
-.nav-item:hover, .nav-item.active {
+.nav-item:hover,
+.nav-item.active {
   color: var(--text-primary);
   transform: translateY(-2px);
 }
@@ -272,6 +297,7 @@ body {
 
 /* Hand sketched look tweaks (Optional stylistic choice) */
 .sketchy-text {
-  font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; /* For the scribbled effect from image */
+  font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+  /* For the scribbled effect from image */
   transform: rotate(-2deg);
 }

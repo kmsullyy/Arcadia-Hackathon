@@ -107,7 +107,7 @@ async function buildDashboard(env, url) {
     urgentAlert,
     eta,
     shouldCommute,
-    student: { name: "Alex Rivera", email: "alex.rivera@arcadia.edu" },
+    student: { name: "Kevin Sullivan", email: "ksullivan@arcadia.edu" },
     campus: { name: "Arcadia University", address: "450 S Easton Rd, Glenside, PA" },
     generatedAt: now.toISOString(),
     simulatedTime: simTimeParam ?? null,
