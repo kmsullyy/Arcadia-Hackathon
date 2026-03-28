@@ -1,0 +1,263 @@
+/* ==========================================================================
+   Arcadia Commuter Assistant: Core Design System
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* ========================================================================
+     1. Color Palette (HSL Tokens)
+     ======================================================================== */
+  /* Arcadia Brand Colors */
+  --hue-brand: 350; /* Arcadia Red/Cardinal */
+  --sat-brand: 85%;
+  --brand-light: hsl(var(--hue-brand), var(--sat-brand), 95%);
+  --brand-main: hsl(var(--hue-brand), var(--sat-brand), 45%);
+  --brand-dark: hsl(var(--hue-brand), var(--sat-brand), 30%);
+
+  /* Semantic - Accent, Success, Warning, Danger */
+  --accent-main: hsl(210, 80%, 55%);
+  --success-main: hsl(150, 70%, 40%);
+  --warning-main: hsl(40, 95%, 55%);
+  --danger-main: hsl(0, 85%, 55%);
+
+  /* Base Light Theme Tokens */
+  --bg-primary: hsl(0, 0%, 98%);
+  --bg-secondary: hsl(0, 0%, 100%);
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --bg-glass-heavy: rgba(255, 255, 255, 0.3);
+
+  --text-primary: hsl(220, 20%, 15%);
+  --text-secondary: hsl(220, 15%, 45%);
+  --text-muted: hsl(220, 10%, 65%);
+
+  --border-light: hsl(220, 15%, 90%);
+  --border-glass: rgba(255, 255, 255, 0.4);
+
+  /* ========================================================================
+     2. Typography
+     ======================================================================== */
+  --font-base: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+  --text-5xl: 3rem;
+
+  /* ========================================================================
+     3. Spacing & Sizing
+     ======================================================================== */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  
+  --container-max: 1200px;
+  --container-sm: 600px;
+
+  /* ========================================================================
+     4. Layout & Shapes (Radii, Shadows, Glass)
+     ======================================================================== */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-round: 9999px;
+
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  
+  --glass-blur: blur(12px);
+
+  /* ========================================================================
+     5. Motion & Transitions
+     ======================================================================== */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ========================================================================
+   Dark Mode Overrides
+   ======================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: hsl(220, 25%, 8%);
+    --bg-secondary: hsl(220, 25%, 12%);
+    --bg-glass: rgba(20, 22, 28, 0.75);
+    --bg-glass-heavy: rgba(20, 22, 28, 0.4);
+
+    --text-primary: hsl(0, 0%, 98%);
+    --text-secondary: hsl(220, 15%, 75%);
+    --text-muted: hsl(220, 15%, 55%);
+
+    --border-light: hsl(220, 20%, 20%);
+    --border-glass: rgba(255, 255, 255, 0.05);
+    
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Explicit `.dark` class support if user wants a manual theme toggle */
+:root.dark {
+  --bg-primary: hsl(220, 25%, 8%);
+  --bg-secondary: hsl(220, 25%, 12%);
+  --bg-glass: rgba(20, 22, 28, 0.75);
+  --bg-glass-heavy: rgba(20, 22, 28, 0.4);
+
+  --text-primary: hsl(0, 0%, 98%);
+  --text-secondary: hsl(220, 15%, 75%);
+  --text-muted: hsl(220, 15%, 55%);
+
+  --border-light: hsl(220, 20%, 20%);
+  --border-glass: rgba(255, 255, 255, 0.05);
+  
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* ========================================================================
+   Reset & Base Styles
+   ======================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background-color var(--transition-base), color var(--transition-base);
+  
+  /* Beautiful animated mesh gradient background for extreme premium feel */
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(var(--hue-brand), var(--sat-brand), 45%, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(210, 80%, 55%, 0.1) 0px, transparent 50%);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--accent-main);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  filter: brightness(1.2);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ========================================================================
+   Utility Classes & Components
+   ======================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.container-sm {
+  max-width: var(--container-sm);
+}
+
+/* Premium Glassmorphic Card */
+.card-glass {
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-bounce), box-shadow var(--transition-base);
+}
+
+.card-glass:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Primary Action Button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  background-color: var(--brand-main);
+  color: #ffffff;
+  font-family: var(--font-base);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-round);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+  box-shadow: 0 4px 14px 0 hsla(var(--hue-brand), var(--sat-brand), 45%, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px 0 hsla(var(--hue-brand), var(--sat-brand), 45%, 0.6);
+  background-color: hsl(var(--hue-brand), var(--sat-brand), 50%);
+}
+
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Specific Utilities */
+.text-brand { color: var(--brand-main); }
+.text-danger { color: var(--danger-main); }
+.text-success { color: var(--success-main); }
+.text-muted { color: var(--text-muted); }
+
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+
+.mt-md { margin-top: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.text-center { text-align: center; }
+
+/* Micro-animations */
+@keyframes pulse-soft {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s infinite ease-in-out;
+}
